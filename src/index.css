@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --app-height: 100%;
+    color-scheme: dark;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #050508;
+    color: #f3f4f6;
+  }
+
+  #root {
+    width: 100vw !important;
+    max-width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    text-align: left !important;
+    display: block !important;
+    overflow: hidden;
+  }
+}
+
+/* Custom Scrollbar for Glassmorphic panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 153, 51, 0.2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 153, 51, 0.4);
+}
+
+/* Premium Glassmorphic container styling */
+.glass-panel {
+  background: rgba(18, 18, 28, 0.65);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 153, 51, 0.25);
+}
+
+/* Map specific styling updates */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #0d0d12 !important;
+}
+
+/* Custom Dark Matter map filter */
+.dark-map-tiles {
+  filter: brightness(0.85) contrast(1.1) saturate(0.9) hue-rotate(5deg);
+}
+
+.light-map-tiles {
+  filter: contrast(1.05) saturate(1.0);
+}
+
+/* Custom Leaflet Marker overrides */
+.leaflet-popup-content-wrapper {
+  background: rgba(18, 18, 28, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 153, 51, 0.3) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+  padding: 2px !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(18, 18, 28, 0.9) !important;
+  border: 1px solid rgba(255, 153, 51, 0.3) !important;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background: rgba(18, 18, 28, 0.85) !important;
+  color: #f3f4f6 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.2s ease;
+}
+
+.leaflet-bar a:hover {
+  background: rgba(255, 153, 51, 0.2) !important;
+  color: #ff9933 !important;
+}
+
+/* Animation utilities */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 153, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 111, 0, 0.6);
+  }
+}
+
+.pulse-glow-saffron {
+  animation: pulse-glow 2.5s infinite;
+}
+
+/* Ganga Aarti oil diyas animation */
+@keyframes diya-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(255, 153, 51, 0.8));
+  }
+}
+
+.diya-floating {
+  animation: diya-float 4s ease-in-out infinite;
+}
+
+/* Heat Shimmer Effect for Midday */
+@keyframes shimmer {
+  0% {
+    filter: url(#shimmer-filter) brightness(1);
+  }
+  50% {
+    filter: url(#shimmer-filter) brightness(1.03);
+  }
+  100% {
+    filter: url(#shimmer-filter) brightness(1);
+  }
+}
+
+.heat-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Hide leaflet default controls we don't want */
+.leaflet-control-attribution {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 9px !important;
+}
+
